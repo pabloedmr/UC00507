@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Verificador de Temperatura</title>
 
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+    width: 150px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Verificador de Temperatura</h1>
+
+<input type="number" id="temperatura" placeholder="Digite a temperatura">
+
+<button onclick="verificarTemperatura()">
+Verificar
+</button>
+
+<p id="resultado"></p>
+
+<script>
+function verificarTemperatura() {
+
+    let valor = document.getElementById("temperatura").value;
+    let temperatura = Number(valor);
+    let resultado = document.getElementById("resultado");
+
+    if (valor === "" || isNaN(temperatura)) {
+        resultado.innerHTML = "Por favor, insere uma temperatura válida.";
+        resultado.style.color = "black";
+    }
+    else if (temperatura < 10) {
+        resultado.innerHTML = "Está frio.";
+        resultado.style.color = "blue";
+    }
+    else if (temperatura >= 10 && temperatura <= 24) {
+        resultado.innerHTML = "Está agradável.";
+        resultado.style.color = "green";
+    }
+    else {
+        resultado.innerHTML = "Está calor.";
+        resultado.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
